@@ -1,0 +1,308 @@
+.App {
+    height: 100vh;
+    display: flex;
+    background-color: #020230;
+    color: white;
+}
+
+.lockScreen {
+    display: none;
+}
+
+.main {
+    width: 75%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230), url("./assets/bk.jpg") center;
+    display: flex;
+    flex-direction: column;
+}
+
+.top {
+    height: 50%;
+    position: relative;
+}
+
+
+.timer{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 30px;
+    font-weight: 700;
+    position: absolute;
+    bottom: 10px;
+    left: 80px;
+}
+
+.bottom {
+    height: 50%;
+}
+
+.trivia {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.question {
+    width: 80%;
+    background: linear-gradient(#100241, black);
+    border: 2px solid white;
+    text-align: center;
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.answers {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.answer {
+    width: 37.5%;
+    padding: 20px;
+    text-align: center;
+    background: linear-gradient(#0e0124, #22074d);
+    border: 1px solid white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0 10px 20px 10px;
+    cursor: pointer;
+}
+
+.my-correct {
+    width: 37.5%;
+    padding: 20px;
+    text-align: center;
+    background: green;
+    border: 1px solid white;
+    border-radius: 15px;
+    font-size: 20px;
+    font-weight: 300;
+    margin: 0 10px 20px 10px;
+    cursor: pointer;
+}
+
+.answer:hover,
+.answer.active {
+    background: mediumblue;
+}
+
+.answer.correct {
+    animation: correct 2s ease forwards;
+}
+
+@keyframes correct {
+    0%,
+    22%,
+    42% {
+        background: mediumblue;
+    }
+    20%,
+    40%,
+    62% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    64%, 100% {
+        background: green;
+    }
+}
+
+.answer.wrong {
+    animation: wrong 2s ease forwards;
+}
+
+@keyframes wrong {
+    0%,
+    22%,
+    42% {
+        background: mediumblue;
+    }
+    20%,
+    40%,
+    62% {
+        background: linear-gradient(#0e0124, #22074d);
+    }
+    64%, 100% {
+        background: crimson;
+    }
+}
+
+.pyramid {
+    width: 25%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.moneyList {
+    list-style: none;
+    width: 100%;
+    padding: 20px;
+}
+
+.moneyListItem {
+    display: flex;
+    align-items: center;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.moneyListItem.active {
+    background: teal;
+}
+
+.moneyListItem:active {
+    background-color: teal;
+}
+
+.moneyListItemNumber {
+    font-size: 18px;
+    font-weight: 100;
+    width: 30%;
+}
+
+.moneyListItemAmount {
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.earnedText {
+    position: relative;
+    margin: auto;
+}
+
+/*----- Mobile view -----------------------------------------------------------------------*/
+
+@media (orientation: portrait) {
+    .lockScreen {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: red;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+    }
+    .lockScreen h2{
+        text-align: center;
+    }
+
+    .App {
+        display: none;
+    }
+}
+
+@media only screen and
+(orientation: landscape) and
+(max-height: 320px)
+ {
+
+    .main {
+        width: 100%;
+        background: linear-gradient(to bottom, rgba(0, 0, 0, 0), #020230), url("./assets/bk.jpg") center;
+        display: flex;
+        flex-direction: column;
+    }
+
+
+    .timer {
+        width: 3rem;
+        height: 3rem;
+        border-radius: 50%;
+        border: 2px solid white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+        font-weight: 700;
+        position: absolute;
+    }
+
+
+
+    .question {
+        width: 79%;
+        background: linear-gradient(#100241, black);
+        border: 1px solid white;
+        text-align: center;
+        padding: 1rem;
+        border-radius: 1rem;
+        font-size: 0.89em;
+        margin-top: 1rem;
+    }
+
+    .answers {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+
+    .answer {
+        width: 33.33%;
+        padding: 1.2rem;
+        text-align: center;
+        background: linear-gradient(#0e0124, #22074d);
+        border: 1px solid white;
+        border-radius: 1rem;
+        font-size: 0.75em;
+        font-weight: 300;
+        margin: 0.625rem 0.625rem 0 0.625rem;
+        cursor: pointer;
+    }
+
+    .my-correct{
+        width: 33.33%;
+        padding: 1.2rem;
+        text-align: center;
+        background: green;
+        border: 1px solid white;
+        border-radius: 1rem;
+        font-size: 0.75em;
+        font-weight: 300;
+        margin: 0.624rem 0.624rem 0 0.624rem;
+        cursor: pointer;
+    }
+
+    .pyramid {
+        width: 20%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+    }
+
+    .moneyList {
+        list-style: none;
+        width: 100%;
+        padding: 0.625rem;
+
+    }
+
+    .moneyListItemNumber {
+        font-size: 0.56em;
+        font-weight: 100;
+        width: 25%;
+    }
+
+    .moneyListItemAmount {
+        font-size: 0.56em;
+        font-weight: 300;
+    }
+
+    .bottom {
+        height: 100%;
+    }
+}
